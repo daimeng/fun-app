@@ -1,0 +1,26 @@
+<html>
+<head>
+  <link rel="stylesheet" href="./src/style.css" />
+  <script src="./src/mockServer.js"></script>
+  <script src="./src/weact.js"></script>
+  <script src="./src/wdom.js"></script>
+  <script src="./src/table.js"></script>
+  <script src="./src/app.js"></script>
+</head>
+<body>
+  <div id="mountNode"></div>
+  <script>
+    // MOCK settings, comment out to see actual
+    App.fetch = mockServer.fetch;
+    App.tickInterval = 3000; // 3 sec
+    // MOCK end
+  
+    attach(
+      document.getElementById('mountNode'),
+      App.view,
+      App.reduce,
+      App.listeners
+    );
+  </script>
+</body>
+</html>
